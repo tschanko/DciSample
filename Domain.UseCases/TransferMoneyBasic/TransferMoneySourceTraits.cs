@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Domain.Model;
 
-namespace Domain.UseCases {
+namespace Domain.UseCases.TransferMoneyBasic {
     public static class TransferMoneySourceTraits {
         public static void TransferFrom(this ITransferMoneySource self, ITransferMoneySink recipient, double amount) {
             var accountSelf = self as Account;

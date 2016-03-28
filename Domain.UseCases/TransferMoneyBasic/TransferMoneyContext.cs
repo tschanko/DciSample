@@ -1,6 +1,6 @@
 ﻿using Domain.Model;
 
-namespace Domain.UseCases {
+namespace Domain.UseCases.TransferMoneyBasic {
     public class TransferMoneyContext {
         public ITransferMoneySource Source { get; private set; }
         public ITransferMoneySink Sink { get; private set; }

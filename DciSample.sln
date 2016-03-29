@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestController", "TestContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.UseCases", "Domain.UseCases\Domain.UseCases.csproj", "{2899ACCC-49F6-4C83-8215-32789333259A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndpointB", "EndpointB\EndpointB.csproj", "{17DE4F45-D23E-4C82-95E3-2780B85456FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.NServiceBus", "Domain.NServiceBus\Domain.NServiceBus.csproj", "{77AC69F9-1963-44AB-B37A-781A36D123FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{2899ACCC-49F6-4C83-8215-32789333259A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2899ACCC-49F6-4C83-8215-32789333259A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2899ACCC-49F6-4C83-8215-32789333259A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17DE4F45-D23E-4C82-95E3-2780B85456FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17DE4F45-D23E-4C82-95E3-2780B85456FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17DE4F45-D23E-4C82-95E3-2780B85456FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17DE4F45-D23E-4C82-95E3-2780B85456FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AC69F9-1963-44AB-B37A-781A36D123FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AC69F9-1963-44AB-B37A-781A36D123FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AC69F9-1963-44AB-B37A-781A36D123FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77AC69F9-1963-44AB-B37A-781A36D123FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

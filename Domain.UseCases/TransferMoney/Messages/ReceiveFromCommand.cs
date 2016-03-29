@@ -1,7 +1,5 @@
-﻿using NServiceBus;
-
-namespace Domain.UseCases.TransferMoneyAdvanced {
-    public class ReceiveFromCommand : ICommand
+﻿namespace Domain.UseCases.TransferMoney.Messages {
+    public class ReceiveFromCommand
     {
         public string TransferMoneySourceId { get; set; }
         public string TransferMoneySinkId { get; set; }

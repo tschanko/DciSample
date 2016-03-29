@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NServiceBus.5.2.14\lib\net45\NServiceBus.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,11 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DCI.Core\DCI.Core.csproj">
+      <Project>{b5fce13e-6868-4628-bbee-92c5e13357c7}</Project>
+      <Name>DCI.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
       <Project>{5204da6a-c770-4b47-a214-f031f76153fd}</Project>
       <Name>Domain.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.NServiceBus\Domain.NServiceBus.csproj">
+      <Project>{77ac69f9-1963-44ab-b37a-781a36d123fe}</Project>
+      <Name>Domain.NServiceBus</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain.UseCases\Domain.UseCases.csproj">
       <Project>{2899accc-49f6-4c83-8215-32789333259a}</Project>

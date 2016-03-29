@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Domain.Model {
-    public class SavingsAccount : Account, ITransferMoneySource, ITransferMoneySink {
+    public class SavingsAccount : Account {
         public SavingsAccount() {
             _balance = 10000;
         }

@@ -1,9 +1,7 @@
-using System;
 using DCI.Core;
-using Domain.UseCases.TransferMoney;
 using NServiceBus;
 
-namespace Domain.NServiceBus {
+namespace Adapters.Transport {
     public class NsbContextRouter : IContextRouter {
         private readonly ISendOnlyBus _bus;
         private readonly RoleRoutingTable _routingTable;

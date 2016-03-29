@@ -1,7 +1,8 @@
+using Adapters.Persistence;
 using Domain.UseCases.TransferMoney;
 using NServiceBus;
 
-namespace Domain.NServiceBus
+namespace Adapters.Transport
 {
    
     public class EndpointConfiguration 
@@ -14,10 +15,11 @@ namespace Domain.NServiceBus
             conventions.DefiningCommandsAs(p => p.Name.EndsWith("Command"));
 
             var roleRoutingTable = CreateRoutingTable();
-
+            
             configuration.RegisterComponents(c => {
                 c.RegisterSingleton(roleRoutingTable);
                 c.ConfigureComponent<NsbContextRouter>(DependencyLifecycle.InstancePerUnitOfWork);
+                c.ConfigureComponent<AccountRepositoryMock>(DependencyLifecycle.InstancePerUnitOfWork);
             });
         }
 

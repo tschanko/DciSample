@@ -1,4 +1,4 @@
-using Domain.NServiceBus;
+using Adapters.Transport;
 using Domain.UseCases.TransferMoney;
 using NServiceBus;
 

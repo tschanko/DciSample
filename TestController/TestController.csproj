@@ -55,6 +55,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Adapters.Persistence\Adapters.Persistence.csproj">
+      <Project>{b70b6807-9e6b-4c87-bcab-cf7c7122b8ab}</Project>
+      <Name>Adapters.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapters.Transport\Adapters.Transport.csproj">
+      <Project>{a9a27b40-910e-4d7c-8580-98bf3169661e}</Project>
+      <Name>Adapters.Transport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DCI.Core\DCI.Core.csproj">
       <Project>{b5fce13e-6868-4628-bbee-92c5e13357c7}</Project>
       <Name>DCI.Core</Name>
@@ -62,10 +70,6 @@
     <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
       <Project>{5204da6a-c770-4b47-a214-f031f76153fd}</Project>
       <Name>Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.NServiceBus\Domain.NServiceBus.csproj">
-      <Project>{77ac69f9-1963-44ab-b37a-781a36d123fe}</Project>
-      <Name>Domain.NServiceBus</Name>
     </ProjectReference>
     <ProjectReference Include="..\Domain.UseCases\Domain.UseCases.csproj">
       <Project>{2899accc-49f6-4c83-8215-32789333259a}</Project>

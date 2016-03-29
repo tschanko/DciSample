@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{77AC69F9-1963-44AB-B37A-781A36D123FE}</ProjectGuid>
+    <ProjectGuid>{B70B6807-9E6B-4C87-BCAB-CF7C7122B8AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain.NServiceBus</RootNamespace>
-    <AssemblyName>Domain.NServiceBus</AssemblyName>
+    <RootNamespace>Adapters.Persistence</RootNamespace>
+    <AssemblyName>Adapters.Persistence</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,35 +30,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NServiceBus.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NServiceBus.5.2.14\lib\net45\NServiceBus.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EndpointConfig.cs" />
-    <Compile Include="NsbContextRouter.cs" />
+    <Compile Include="AccountRepositoryMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoleRoutingTable.cs" />
-    <Compile Include="TransferMoneyHandlers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DCI.Core\DCI.Core.csproj">
-      <Project>{b5fce13e-6868-4628-bbee-92c5e13357c7}</Project>
-      <Name>DCI.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
       <Project>{5204da6a-c770-4b47-a214-f031f76153fd}</Project>
       <Name>Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.UseCases\Domain.UseCases.csproj">
-      <Project>{2899accc-49f6-4c83-8215-32789333259a}</Project>
-      <Name>Domain.UseCases</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

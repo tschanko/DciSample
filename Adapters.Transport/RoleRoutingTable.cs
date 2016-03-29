@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 
-namespace Domain.NServiceBus {
+namespace Adapters.Transport {
     public class RoleRoutingTable {
         private readonly ConcurrentDictionary<Type, string> _routes = new ConcurrentDictionary<Type, string>();
 

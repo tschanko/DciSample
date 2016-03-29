@@ -1,5 +1,6 @@
 ﻿using System;
-using Domain.NServiceBus;
+using Adapters.Persistence;
+using Adapters.Transport;
 using Domain.UseCases.TransferMoney;
 using NServiceBus;
 
@@ -13,13 +14,15 @@ namespace TestController {
             var routingTable = CreateRoutingTable();
             var router = new NsbContextRouter(_bus, routingTable);
 
+            var accountRepository = new AccountRepositoryMock();
+
             Console.WriteLine("Press <Enter> to run transfer:");
             Console.ReadLine();
 
             var sourceId = "Account/1";
             var sinkId = "Account/2";
 
-            new TransferMoneyContext(sourceId, sinkId, 1000, router).Execute();
+            new TransferMoneyContext(sourceId, sinkId, 1000, router, accountRepository).Execute();
 
             Console.WriteLine("Context started!");
             Console.ReadLine();

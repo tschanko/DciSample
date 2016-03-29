@@ -1,31 +1,35 @@
 ﻿using DCI.Core;
 using Domain.Model;
+using Domain.Model.Ports;
 using Domain.UseCases.TransferMoney.Messages;
 
 namespace Domain.UseCases.TransferMoney {
     public class TransferMoneyContext : DciContext, ITransferMoneySource, ITransferMoneySink {
+        private readonly IAccountRepository _accountRepository;
 
         public ITransferMoneySource Source => this;
         private string _sourceId;
         string ITransferMoneySource.Id => _sourceId;
         public Account Resolve(ITransferMoneySource role) {
-            return new SavingsAccount {Id = role.Id};
+            return _accountRepository.Load(role.Id);
         }
 
         public ITransferMoneySink Sink => this;
         private string _sinkId;
         string ITransferMoneySink.Id => _sinkId;
         public Account Resolve(ITransferMoneySink role) {
-            return new SavingsAccount {Id = role.Id};
+            return _accountRepository.Load(role.Id);
         }
 
         public double Amount { get; private set; }
 
-        public TransferMoneyContext(IContextRouter contextRouter) : base(contextRouter) {
+        public TransferMoneyContext(IContextRouter contextRouter, IAccountRepository accountRepository) : base(contextRouter) {
+            _accountRepository = accountRepository;
         }
 
-        public TransferMoneyContext(string sourceId, string sinkId, double amount, IContextRouter contextRouter)
+        public TransferMoneyContext(string sourceId, string sinkId, double amount, IContextRouter contextRouter, IAccountRepository accountRepository)
             : base(contextRouter) {
+            _accountRepository = accountRepository;
             Initialize(sourceId, sinkId, amount);
         }
         

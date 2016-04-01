@@ -33,7 +33,7 @@ namespace TestController {
 
         static void SetupBus() {
             BusConfiguration busConfiguration = new BusConfiguration();
-            EndpointConfiguration.Customize(busConfiguration);
+            CommonEndpointConfiguration.Customize(busConfiguration);
             _bus = Bus.CreateSendOnly(busConfiguration);
         }
 

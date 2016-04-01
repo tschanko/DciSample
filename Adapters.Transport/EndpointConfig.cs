@@ -5,7 +5,7 @@ using NServiceBus;
 namespace Adapters.Transport
 {
    
-    public class EndpointConfiguration 
+    public class CommonEndpointConfiguration 
     {
         public static void Customize(BusConfiguration configuration)
         {

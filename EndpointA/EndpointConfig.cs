@@ -11,7 +11,7 @@ namespace EndpointA
     {
         public void Customize(BusConfiguration configuration)
         {
-            EndpointConfiguration.Customize(configuration);
+            CommonEndpointConfiguration.Customize(configuration);
         }
 
        

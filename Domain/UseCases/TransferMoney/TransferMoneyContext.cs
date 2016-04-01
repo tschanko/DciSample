@@ -1,10 +1,10 @@
-﻿using DCI.Core;
+using DCI.Core;
 using Domain.Model;
-using Domain.Model.Ports;
+using Domain.Ports;
 using Domain.UseCases.TransferMoney.Messages;
 
 namespace Domain.UseCases.TransferMoney {
-    public class TransferMoneyContext : DciContext, ITransferMoneySource, ITransferMoneySink {
+    public class TransferMoneyContext : Context, ITransferMoneySource, ITransferMoneySink {
         private readonly IAccountRepository _accountRepository;
 
         private readonly string _sourceId;

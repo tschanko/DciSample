@@ -1,5 +1,5 @@
 ﻿namespace DCI.Core {
-    public interface IDciContext {
+    public interface IContext {
         void SendTo<TRole>(object message);
     }
 }

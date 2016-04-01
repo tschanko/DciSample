@@ -17,7 +17,7 @@ namespace Domain.UseCases.TransferMoney {
                 Amount = amount
             };
 
-            self.Context.SendTo<ITransferMoneySink>(receiveFrom);
+            self.CurrentContext.SendTo<ITransferMoneySink>(receiveFrom);
 
         }
     }

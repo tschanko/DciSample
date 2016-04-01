@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B70B6807-9E6B-4C87-BCAB-CF7C7122B8AB}</ProjectGuid>
+    <ProjectGuid>{1DD2191A-3EE4-404D-8A9F-EA18F148C583}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Adapters.Persistence</RootNamespace>
-    <AssemblyName>Adapters.Persistence</AssemblyName>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountRepositoryMock.cs" />
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\SavingsAccount.cs" />
+    <Compile Include="Ports\IAccountRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UseCases\TransferMoney\ITransferMoneySink.cs" />
+    <Compile Include="UseCases\TransferMoney\ITransferMoneySource.cs" />
+    <Compile Include="UseCases\TransferMoney\Messages\ReceiveFromCommand.cs" />
+    <Compile Include="UseCases\TransferMoney\Messages\TransferFromCommand.cs" />
+    <Compile Include="UseCases\TransferMoney\TransferMoneyContext.cs" />
+    <Compile Include="UseCases\TransferMoney\TransferMoneySinkTraits.cs" />
+    <Compile Include="UseCases\TransferMoney\TransferMoneySourceTraits.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{1dd2191a-3ee4-404d-8a9f-ea18f148c583}</Project>
-      <Name>Domain</Name>
+    <ProjectReference Include="..\DCI.Core\DCI.Core.csproj">
+      <Project>{b5fce13e-6868-4628-bbee-92c5e13357c7}</Project>
+      <Name>DCI.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

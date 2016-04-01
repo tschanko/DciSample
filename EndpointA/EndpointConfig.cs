@@ -1,5 +1,4 @@
 using Adapters.Transport;
-using Domain.UseCases.TransferMoney;
 using NServiceBus;
 
 namespace EndpointA

@@ -67,13 +67,9 @@
       <Project>{b5fce13e-6868-4628-bbee-92c5e13357c7}</Project>
       <Name>DCI.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
-      <Project>{5204da6a-c770-4b47-a214-f031f76153fd}</Project>
-      <Name>Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Domain.UseCases\Domain.UseCases.csproj">
-      <Project>{2899accc-49f6-4c83-8215-32789333259a}</Project>
-      <Name>Domain.UseCases</Name>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{1dd2191a-3ee4-404d-8a9f-ea18f148c583}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

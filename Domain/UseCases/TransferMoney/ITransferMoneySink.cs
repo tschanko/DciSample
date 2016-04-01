@@ -1,4 +1,4 @@
-﻿using DCI.Core;
+using DCI.Core;
 using Domain.Model;
 
 namespace Domain.UseCases.TransferMoney {

@@ -1,5 +1,5 @@
 ﻿using Domain.Model;
-using Domain.Model.Ports;
+using Domain.Ports;
 
 namespace Adapters.Persistence {
     public class AccountRepositoryMock : IAccountRepository{

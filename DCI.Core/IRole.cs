@@ -1,6 +1,6 @@
 ﻿namespace DCI.Core {
     public interface IRole<TRole, out TActor> {
-        IDciContext Context { get;  }
+        IContext CurrentContext { get;  }
         TActor Resolve(TRole role);
     }
 }

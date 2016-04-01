@@ -1,5 +1,5 @@
 using DCI.Core;
-using Domain.Model.Ports;
+using Domain.Ports;
 using Domain.UseCases.TransferMoney;
 using Domain.UseCases.TransferMoney.Messages;
 using NServiceBus;

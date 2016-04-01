@@ -1,11 +1,11 @@
 ﻿using System;
 
 namespace DCI.Core {
-    public abstract class DciContext : IDciContext {
+    public abstract class Context : IContext {
         private readonly IRoleRouter _roleRouter;
-        public IDciContext Context => this;
+        public IContext CurrentContext => this;
 
-        protected DciContext(IRoleRouter roleRouter) {
+        protected Context(IRoleRouter roleRouter) {
             _roleRouter = roleRouter;
         }
 

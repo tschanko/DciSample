@@ -35,22 +35,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransferMoney\ITransferMoneySink.cs" />
-    <Compile Include="TransferMoney\ITransferMoneySource.cs" />
-    <Compile Include="TransferMoney\Messages\ReceiveFromCommand.cs" />
-    <Compile Include="TransferMoney\Messages\TransferFromCommand.cs" />
-    <Compile Include="TransferMoney\TransferMoneyContext.cs" />
-    <Compile Include="TransferMoney\TransferMoneySinkTraits.cs" />
-    <Compile Include="TransferMoney\TransferMoneySourceTraits.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCI.Core\DCI.Core.csproj">
       <Project>{b5fce13e-6868-4628-bbee-92c5e13357c7}</Project>
       <Name>DCI.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
-      <Project>{5204da6a-c770-4b47-a214-f031f76153fd}</Project>
-      <Name>Domain.Model</Name>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{1dd2191a-3ee4-404d-8a9f-ea18f148c583}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

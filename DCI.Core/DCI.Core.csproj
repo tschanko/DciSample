@@ -34,8 +34,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DciContext.cs" />
-    <Compile Include="IDciContext.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="IContext.cs" />
     <Compile Include="IRoleRouter.cs" />
     <Compile Include="IRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,11 +2,11 @@ using DCI.Core;
 using NServiceBus;
 
 namespace Adapters.Transport {
-    public class NsbContextRouter : IContextRouter {
+    public class NsbRoleRouter : IRoleRouter {
         private readonly ISendOnlyBus _bus;
         private readonly RoleRoutingTable _routingTable;
 
-        public NsbContextRouter(ISendOnlyBus bus, RoleRoutingTable routingTable) {
+        public NsbRoleRouter(ISendOnlyBus bus, RoleRoutingTable routingTable) {
             _bus = bus;
             _routingTable = routingTable;
         }

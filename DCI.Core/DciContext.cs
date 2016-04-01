@@ -2,15 +2,15 @@
 
 namespace DCI.Core {
     public abstract class DciContext : IDciContext {
-        private readonly IContextRouter _contextRouter;
+        private readonly IRoleRouter _roleRouter;
         public IDciContext Context => this;
 
-        protected DciContext(IContextRouter contextRouter) {
-            _contextRouter = contextRouter;
+        protected DciContext(IRoleRouter roleRouter) {
+            _roleRouter = roleRouter;
         }
 
         public void SendTo<TRole>(object message) {
-            _contextRouter.SendTo<TRole>(message);
+            _roleRouter.SendTo<TRole>(message);
         }
 
 

@@ -18,7 +18,7 @@ namespace Adapters.Transport
             
             configuration.RegisterComponents(c => {
                 c.RegisterSingleton(roleRoutingTable);
-                c.ConfigureComponent<NsbContextRouter>(DependencyLifecycle.InstancePerUnitOfWork);
+                c.ConfigureComponent<NsbRoleRouter>(DependencyLifecycle.InstancePerUnitOfWork);
                 c.ConfigureComponent<AccountRepositoryMock>(DependencyLifecycle.InstancePerUnitOfWork);
             });
         }

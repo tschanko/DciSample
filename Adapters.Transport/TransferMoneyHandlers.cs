@@ -6,20 +6,20 @@ using NServiceBus;
 
 namespace Adapters.Transport {
     public class TransferMoneyHandlers : IHandleMessages<TransferFromCommand>, IHandleMessages<ReceiveFromCommand> {
-        private readonly IContextRouter _contextRouter;
+        private readonly IRoleRouter _roleRouter;
         private readonly IAccountRepository _accountRepository;
 
-        public TransferMoneyHandlers(IContextRouter contextRouter, IAccountRepository accountRepository) {
-            _contextRouter = contextRouter;
+        public TransferMoneyHandlers(IRoleRouter roleRouter, IAccountRepository accountRepository) {
+            _roleRouter = roleRouter;
             _accountRepository = accountRepository;
         }
 
         public void Handle(TransferFromCommand command) {
-            new TransferMoneyContext(command, _contextRouter, _accountRepository).Execute(command);
+            new TransferMoneyContext(command, _roleRouter, _accountRepository).Execute(command);
         }
 
         public void Handle(ReceiveFromCommand command) {
-            new TransferMoneyContext(command, _contextRouter, _accountRepository).Execute(command);
+            new TransferMoneyContext(command, _roleRouter, _accountRepository).Execute(command);
         }
     }
 }

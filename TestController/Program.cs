@@ -12,7 +12,7 @@ namespace TestController {
             SetupBus();
 
             var routingTable = CreateRoutingTable();
-            var router = new NsbContextRouter(_bus, routingTable);
+            var router = new NsbRoleRouter(_bus, routingTable);
 
             var accountRepository = new AccountRepositoryMock();
 

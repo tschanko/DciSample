@@ -13,45 +13,20 @@ namespace Domain.UseCases.TransferMoney {
 
         public ITransferMoneySource Source => this;
         string ITransferMoneySource.Id => _sourceId;
+
         public Account Resolve(ITransferMoneySource role) {
             return _accountRepository.Load(role.Id);
         }
 
         public ITransferMoneySink Sink => this;
         string ITransferMoneySink.Id => _sinkId;
+
         public Account Resolve(ITransferMoneySink role) {
             return _accountRepository.Load(role.Id);
         }
 
         public double Amount => _amount;
 
-        public TransferMoneyContext(string sourceId, string sinkId, double amount, IContextRouter contextRouter, IAccountRepository accountRepository)
-            : base(contextRouter)
-        {
-            _sourceId = sourceId;
-            _sinkId = sinkId;
-            _amount = amount;
-            _accountRepository = accountRepository;
-        }
-
-        public TransferMoneyContext(TransferFromCommand command, IContextRouter contextRouter, IAccountRepository accountRepository) : base(contextRouter)
-        {
-            _sourceId = command.TransferMoneySourceId;
-            _sinkId = command.TransferMoneySinkId;
-            _amount = command.Amount;
-            _accountRepository = accountRepository;
-        }
-
-        public TransferMoneyContext(ReceiveFromCommand command, IContextRouter contextRouter, IAccountRepository accountRepository) : base(contextRouter)
-        {
-            _sourceId = command.TransferMoneySourceId;
-            _sinkId = command.TransferMoneySinkId;
-            _amount = command.Amount;
-            _accountRepository = accountRepository;
-        }
-
-        
-        
         public void Start() {
             var transferFrom = new TransferFromCommand {
                 TransferMoneySourceId = Source.Id,
@@ -70,8 +45,36 @@ namespace Domain.UseCases.TransferMoney {
             Sink.ReceiveFrom(Source, Amount);
         }
 
-      
+        public TransferMoneyContext(string sourceId, string sinkId, double amount, IRoleRouter roleRouter,
+            IAccountRepository accountRepository)
+            : base(roleRouter) {
+            _sourceId = sourceId;
+            _sinkId = sinkId;
+            _amount = amount;
+            _accountRepository = accountRepository;
+        }
+
+        public TransferMoneyContext(
+            TransferFromCommand command,
+            IRoleRouter roleRouter,
+            IAccountRepository accountRepository)
+            : this(
+                command.TransferMoneySourceId,
+                command.TransferMoneySinkId,
+                command.Amount, roleRouter,
+                accountRepository) {
+        }
 
 
+        public TransferMoneyContext(
+            ReceiveFromCommand command,
+            IRoleRouter roleRouter,
+            IAccountRepository accountRepository)
+            : this(
+                command.TransferMoneySourceId,
+                command.TransferMoneySinkId,
+                command.Amount, roleRouter,
+                accountRepository) {
+        }
     }
 }

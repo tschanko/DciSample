@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="DciContext.cs" />
     <Compile Include="IDciContext.cs" />
-    <Compile Include="IContextRouter.cs" />
+    <Compile Include="IRoleRouter.cs" />
     <Compile Include="IRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

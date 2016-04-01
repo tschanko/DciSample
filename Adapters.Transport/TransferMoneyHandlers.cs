@@ -15,11 +15,11 @@ namespace Adapters.Transport {
         }
 
         public void Handle(TransferFromCommand command) {
-            new TransferMoneyContext(_contextRouter, _accountRepository).Execute(command);
+            new TransferMoneyContext(command, _contextRouter, _accountRepository).Execute(command);
         }
 
         public void Handle(ReceiveFromCommand command) {
-            new TransferMoneyContext(_contextRouter, _accountRepository).Execute(command);
+            new TransferMoneyContext(command, _contextRouter, _accountRepository).Execute(command);
         }
     }
 }

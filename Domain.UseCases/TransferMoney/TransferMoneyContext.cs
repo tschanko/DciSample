@@ -7,33 +7,52 @@ namespace Domain.UseCases.TransferMoney {
     public class TransferMoneyContext : DciContext, ITransferMoneySource, ITransferMoneySink {
         private readonly IAccountRepository _accountRepository;
 
+        private readonly string _sourceId;
+        private readonly string _sinkId;
+        private readonly double _amount;
+
         public ITransferMoneySource Source => this;
-        private string _sourceId;
         string ITransferMoneySource.Id => _sourceId;
         public Account Resolve(ITransferMoneySource role) {
             return _accountRepository.Load(role.Id);
         }
 
         public ITransferMoneySink Sink => this;
-        private string _sinkId;
         string ITransferMoneySink.Id => _sinkId;
         public Account Resolve(ITransferMoneySink role) {
             return _accountRepository.Load(role.Id);
         }
 
-        public double Amount { get; private set; }
-
-        public TransferMoneyContext(IContextRouter contextRouter, IAccountRepository accountRepository) : base(contextRouter) {
-            _accountRepository = accountRepository;
-        }
+        public double Amount => _amount;
 
         public TransferMoneyContext(string sourceId, string sinkId, double amount, IContextRouter contextRouter, IAccountRepository accountRepository)
-            : base(contextRouter) {
+            : base(contextRouter)
+        {
+            _sourceId = sourceId;
+            _sinkId = sinkId;
+            _amount = amount;
             _accountRepository = accountRepository;
-            Initialize(sourceId, sinkId, amount);
         }
+
+        public TransferMoneyContext(TransferFromCommand command, IContextRouter contextRouter, IAccountRepository accountRepository) : base(contextRouter)
+        {
+            _sourceId = command.TransferMoneySourceId;
+            _sinkId = command.TransferMoneySinkId;
+            _amount = command.Amount;
+            _accountRepository = accountRepository;
+        }
+
+        public TransferMoneyContext(ReceiveFromCommand command, IContextRouter contextRouter, IAccountRepository accountRepository) : base(contextRouter)
+        {
+            _sourceId = command.TransferMoneySourceId;
+            _sinkId = command.TransferMoneySinkId;
+            _amount = command.Amount;
+            _accountRepository = accountRepository;
+        }
+
         
-        public void Execute() {
+        
+        public void Start() {
             var transferFrom = new TransferFromCommand {
                 TransferMoneySourceId = Source.Id,
                 TransferMoneySinkId = Sink.Id,
@@ -44,21 +63,14 @@ namespace Domain.UseCases.TransferMoney {
         }
 
         public void Execute(TransferFromCommand command) {
-            Initialize(command.TransferMoneySourceId, command.TransferMoneySinkId, command.Amount);
             Source.TransferFrom(Sink, Amount);
         }
 
         public void Execute(ReceiveFromCommand command) {
-            Initialize(command.TransferMoneySourceId, command.TransferMoneySinkId, command.Amount);
             Sink.ReceiveFrom(Source, Amount);
         }
 
-        private void Initialize(string sourceId, string sinkId, double amount)
-        {
-            _sourceId = sourceId;
-            _sinkId = sinkId;
-            Amount = amount;
-        }
+      
 
 
     }

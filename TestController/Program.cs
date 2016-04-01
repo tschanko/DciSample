@@ -22,7 +22,7 @@ namespace TestController {
             var sourceId = "Account/1";
             var sinkId = "Account/2";
 
-            new TransferMoneyContext(sourceId, sinkId, 1000, router, accountRepository).Execute();
+            new TransferMoneyContext(sourceId, sinkId, 1000, router, accountRepository).Start();
 
             Console.WriteLine("Context started!");
             Console.ReadLine();

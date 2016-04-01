@@ -13,8 +13,9 @@ namespace TestController {
 
             var routingTable = CreateRoutingTable();
             var router = new NsbRoleRouter(_bus, routingTable);
-
             var accountRepository = new AccountRepositoryMock();
+            var transferMoneyContextFactory = new TransferMoneyContextFactory(router, accountRepository);
+
 
             Console.WriteLine("Press <Enter> to run transfer:");
             Console.ReadLine();
@@ -22,7 +23,9 @@ namespace TestController {
             var sourceId = "Account/1";
             var sinkId = "Account/2";
 
-            new TransferMoneyContext(sourceId, sinkId, 1000, router, accountRepository).Start();
+            transferMoneyContextFactory
+                .CreateContext(sourceId, sinkId, 1000)
+                .Start();
 
             Console.WriteLine("Context started!");
             Console.ReadLine();

@@ -10,7 +10,7 @@ namespace Adapters.Transport
         public static void Customize(BusConfiguration configuration)
         {
             configuration.UsePersistence<InMemoryPersistence>();
-            configuration.DiscardFailedMessagesInsteadOfSendingToErrorQueue();
+
             var conventions = configuration.Conventions();
             conventions.DefiningCommandsAs(p => p.Name.EndsWith("Command"));
 
@@ -20,6 +20,7 @@ namespace Adapters.Transport
                 c.RegisterSingleton(roleRoutingTable);
                 c.ConfigureComponent<NsbRoleRouter>(DependencyLifecycle.InstancePerUnitOfWork);
                 c.ConfigureComponent<AccountRepositoryMock>(DependencyLifecycle.InstancePerUnitOfWork);
+                c.ConfigureComponent<TransferMoneyContextFactory>(DependencyLifecycle.InstancePerUnitOfWork);
             });
         }
 

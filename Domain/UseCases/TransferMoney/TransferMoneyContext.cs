@@ -45,36 +45,13 @@ namespace Domain.UseCases.TransferMoney {
             Sink.ReceiveFrom(Source, Amount);
         }
 
-        public TransferMoneyContext(string sourceId, string sinkId, double amount, IRoleRouter roleRouter,
+        internal TransferMoneyContext(string sourceId, string sinkId, double amount, IRoleRouter roleRouter,
             IAccountRepository accountRepository)
             : base(roleRouter) {
             _sourceId = sourceId;
             _sinkId = sinkId;
             _amount = amount;
             _accountRepository = accountRepository;
-        }
-
-        public TransferMoneyContext(
-            TransferFromCommand command,
-            IRoleRouter roleRouter,
-            IAccountRepository accountRepository)
-            : this(
-                command.TransferMoneySourceId,
-                command.TransferMoneySinkId,
-                command.Amount, roleRouter,
-                accountRepository) {
-        }
-
-
-        public TransferMoneyContext(
-            ReceiveFromCommand command,
-            IRoleRouter roleRouter,
-            IAccountRepository accountRepository)
-            : this(
-                command.TransferMoneySourceId,
-                command.TransferMoneySinkId,
-                command.Amount, roleRouter,
-                accountRepository) {
         }
     }
 }

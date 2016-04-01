@@ -49,6 +49,7 @@
     <Compile Include="UseCases\TransferMoney\Messages\ReceiveFromCommand.cs" />
     <Compile Include="UseCases\TransferMoney\Messages\TransferFromCommand.cs" />
     <Compile Include="UseCases\TransferMoney\TransferMoneyContext.cs" />
+    <Compile Include="UseCases\TransferMoney\TransferMoneyContextFactory.cs" />
     <Compile Include="UseCases\TransferMoney\TransferMoneySinkTraits.cs" />
     <Compile Include="UseCases\TransferMoney\TransferMoneySourceTraits.cs" />
   </ItemGroup>
